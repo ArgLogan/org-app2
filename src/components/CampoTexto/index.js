@@ -2,9 +2,19 @@ import "./CampoTexto.css"
 
 const CampoTexto = (props) =>{
     const placeholderMod = `${props.placeholder}...`
-    return <div className="campo-texto">
+    const manejarCambio = (e)=>{
+        props.actualizarValor(e.target.value)
+
+    }
+
+return <div className="campo-texto">
         <label>{props.titulo}</label> 
-        <input placeholder={placeholderMod} required = {props.required} />
+        <input 
+            placeholder={placeholderMod} 
+            required = {props.required} 
+            value={props.valor}
+            onChange={manejarCambio}
+        />
 
     </div>
 }
